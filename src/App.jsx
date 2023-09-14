@@ -3,16 +3,20 @@ import './App.css';
 
 function App() {
 
-    const [light, setLight] = useState('');
+    const [light, setLight] = useState('OFF');
     console.log({light})
+
+    const toggleLight = () => {
+        setLight(light === 'ON' ? 'OFF' : 'ON');
+    };
 
     return (
         <main className="off">
             <section>
-                <div className='dot'></div>
+                <div className={light === 'ON'? 'dot' : 'off.dot'}></div>
                 <button type="button"
                         className={light  ? 'active' : 'button'}
-                        onClick={()=>setLight('ON')}
+                        onClick={toggleLight}
 
                 >{light}</button>
 
